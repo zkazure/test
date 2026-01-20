@@ -1,7 +1,4 @@
----
-author: Kazure Zheng
 title: README
----
 
 # headline 1
 
