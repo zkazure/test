@@ -1,0 +1,14 @@
+#+OPTIONS: toc:nil
+
+* TODO [#A] My Doc Title
+:PROPERTIES:
+:EXPORT_FILE_NAME: README.md
+:END:
+
+正文...wjfaldjffjdksaf
+
+* another
+:PROPERTIES:
+:EXPORT_FILE_NAME: docs/another.md
+:END:
+
