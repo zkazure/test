@@ -1,5 +1,24 @@
 #+OPTIONS: toc:nil
+#+begin_src mermaid
+sequenceDiagram
+    participant C as 客户端
+    participant A as API 网关
+    participant R as Redis
+    participant W as Worker
 
+    C->>A: POST /run (提交JSON)
+    A->>R: Push Task
+    A-->>C: 返回 TaskID
+    
+    loop 定时轮询
+        C->>A: GET /status
+        A-->>C: 返回 Pending 或 Running
+    end
+    
+    R->>W: 消费任务
+    W->>W: 执行 Python 脚本
+    W->>A: 回调/查库更新状态为 Success
+#+end_src
 * TODO [#A] My Doc Title
 :PROPERTIES:
 :EXPORT_FILE_NAME: README.md
@@ -7,9 +26,9 @@
 
 正文...wjfaldjffjdksaf
 
+*
+
 * another
 :PROPERTIES:
 :EXPORT_FILE_NAME: docs/another.md
 :END:
-
-* I am going to test forge again
